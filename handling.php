@@ -57,11 +57,8 @@ $result= mysqli_query($db, $check_user);
 $user=mysqli_fetch_assoc($result);
 
 
-//if user already exist
+//if user email already exist
 if($user){
-    if($user['lastname']===$lname){
-        array_push($errors, 'User already exists');
-    }
 
     if ($user['email']===$email){
         array_push($errors, "Email already exists!");
@@ -76,8 +73,8 @@ if(count($errors)== 0){
 
 
 
-    $_SESSION['lastname']=$lname;
-    $_SESSION['success'] = 'You registered successfully';
+    // $_SESSION['lastname']=$lname;
+    // $_SESSION['success'] = 'You registered successfully';
     header('location:home.php');
 }
 
